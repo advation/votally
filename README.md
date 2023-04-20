@@ -1,15 +1,9 @@
 # Votally
-An open polling system based on Python Django framework. 
+An open polling system based on Python Django framework.
 
-# Project Setup
+# Requirements
+This project runs on [Python 3.10](https://www.python.org/) using the [Django 4.1.7](https://www.djangoproject.com/) Web Framework The following requirements are listed in the requirements.txt file which can be used to install the required packages using pip.
 
-## Requirements
-The following requirements are listed in the requirements.txt file which can be used to install the required packages using pip.
-
-Example:
-```bash
-pip install -r requirements.txt
-```
 - asgiref==3.6.0
 - defusedxml==0.7.1
 - diff-match-patch==20200713
@@ -28,7 +22,7 @@ pip install -r requirements.txt
 - xlrd==2.0.1
 - xlwt==1.3.0
 
-## Installation
+# Development Setup
 Clone the repository
 ```bash
 git clone https://github.com/advation/votally.git
