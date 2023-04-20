@@ -1,0 +1,79 @@
+{% extends 'vote/dark-layout.html' %}
+
+{% block content %}
+    <div class="container pt-5">
+        <div class="row justify-content-center">
+            <div class="col-sm-12">
+                <div class="text-center mb-5">
+                    <h1 class="text-light">Results</h1>
+                </div>
+                <div class="card p-5">
+                    <div class="card-body">
+                        <p class="lead">{{ question.question_text }}</p>
+                        <div class="row">
+                            <div class="col-4 text-center mb-5">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p>
+                                            Total
+                                            <h1>{{ question.total_votes }}</h1>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 text-center mb-5">
+                                <div class="card {% if question.yes_votes > question.no_votes %} text-bg-success {% else %} border-success text-success {% endif %}">
+                                    <div class="card-body">
+                                        <p>
+                                            In Favor
+                                            <h1>{{ question.yes_votes }}</h1>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 text-center mb-5">
+                                <div class="card {% if question.no_votes > question.yes_votes %} text-bg-danger {% else %} border-danger text-danger {% endif %}">
+                                    <div class="card-body">
+                                        <p>
+                                            Opposed
+                                            <h1>{{ question.no_votes }}</h1>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table mb-5">
+                                <tr>
+                                    <th>Age Range</th>
+                                    <th>In Favor</th>
+                                    <th>Opposed</th>
+                                </tr>
+                                {% for range in age_ranges %}
+                                <tr>
+                                    <td>{{ range.age_range }}</td>
+                                    <td>{{ range.yes_votes }}</td>
+                                    <td>{{ range.no_votes }}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+
+                            <table class="table">
+                                <tr>
+                                    <th>ZIP Code</th>
+                                    <th>In Favor</th>
+                                    <th>Opposed</th>
+                                </tr>
+                                {% for zip in zip_codes %}
+                                <tr>
+                                    <td>{{ zip.vote_zip }}</td>
+                                    <td>{{ zip.yes_votes }}</td>
+                                    <td>{{ zip.no_votes }}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

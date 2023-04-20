@@ -1,0 +1,76 @@
+.app-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#poll-container {
+    padding:50px;
+    height: 100vh;
+    display: flex;
+    flex: 3;
+    overflow-y: auto;
+    flex-wrap: wrap;
+}
+
+#form-container {
+    padding:50px;
+    height: 100vh;
+    display: block;
+    background-color: #232628;
+    color:#fff;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.poll-question {
+    color: #000000;
+    font-size: 2.5em;
+    font-weight: 600;
+    padding-bottom:30px;
+}
+
+.questions {
+    display: block;
+}
+
+.poll-item {
+    margin-bottom:50px;
+    border-bottom:4px solid #dadada;
+    padding-bottom:50px;
+}
+
+.button_yes {
+    padding:20px;
+    font-size: 2em;
+    min-width:200px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border:4px solid;
+}
+
+.button_no {
+    padding:20px;
+    font-size: 2em;
+    min-width:200px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border:4px solid;
+}
+
+.form-block {
+    display: block;
+}
+
+input {
+    font-size:1.5em !important;
+}
+
+select {
+    font-size:1.5em !important;
+}
+
+button {
+    margin-top:25px;
+    padding:30px;
+    font-size:1.5em !important;
+}

@@ -1,0 +1,18 @@
+{% extends 'vote/layout.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col text-center mt-5 pt-5">
+                <h1 class="display-1">Thank you for your submission.</h1>
+                <a class="btn btn-lg btn-primary" href="{% url 'index' %}">Start a submission</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Redirect after 10 seconds
+        setTimeout(function() {
+            window.location.href = "/";
+        }, 10000);
+    </script>
+{% endblock %}

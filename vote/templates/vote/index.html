@@ -1,0 +1,72 @@
+{% extends 'vote/layout.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block content %}
+{% if questions %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="app-container">
+            <div class="" id="poll-container">
+                 <div class="questions">
+                    {% for question in questions %}
+                        <div class="poll-item">
+                            <div class="poll-question">
+                                {{ question }}
+                            </div>
+                            {% if question.images %}
+                            <div class="poll-images mb-5">
+                                <div class="row justify-content-center">
+                                {% for image in question.images.all %}
+                                    <div class="col-sm-12 col-md-4 col-lg-2 text-center">
+                                        <div class="card">
+                                            <img src="{{ image.image.url }}" alt="" class="card-image">
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="text-center">
+                                <input type="radio" class="btn-check" value="no" name="{{ question.question_id }}" id="no-{{ forloop.counter0 }}" autocomplete="off">
+                                <label class="btn btn-outline-danger button_no mb-5" for="no-{{ forloop.counter0 }}">No</label>
+
+                                <input type="radio" class="btn-check" value="yes" name="{{ question.question_id }}" id="yes-{{ forloop.counter0 }}" autocomplete="off">
+                                <label class="btn btn-outline-success button_yes mb-5" for="yes-{{ forloop.counter0 }}">Yes</label>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="shadow-md border-end" id="form-container">
+                <div class="form-block">
+                    <div class="text-center mb-3">
+                        <h1 class="display-4 mb-5"><i class="ri-shield-user-line"></i> Votally</h1>
+                        <div class="alert alert-primary" role="alert">
+                            <i class="ri-information-line"></i> Your information is collected solely to prevent duplicate entries and is not linked to answers for any question.
+                        </div>
+                    </div>
+                    <div class="voter_info">
+                        {% bootstrap_field form.first_name show_label=False %}
+                        {% bootstrap_field form.last_name show_label=False %}
+                        {% bootstrap_field form.age_range show_label=False %}
+                        {% bootstrap_field form.zip_code show_label=False %}
+                        {% bootstrap_button button_type="submit" content="Submit" extra_classes="w-100" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% else %}
+    <div class="bg-secondary p-2" style="height:100vh;">
+        <div class="d-flex">
+            <div class="position-absolute top-50 start-50 translate-middle text-light fs-1 text-uppercase text-center">
+                <h1 class="display-1"><i class="ri-error-warning-line"></i></h1>
+                No polls available at this time
+            </div>
+        </div>
+
+    </div>
+{% endif %}
+{% endblock %}
