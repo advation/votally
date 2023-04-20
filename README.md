@@ -2,7 +2,7 @@
 An open polling system based on Python Django framework.
 
 # Requirements
-This project runs on [Python 3.10](https://www.python.org/) using the [Django 4.1.7](https://www.djangoproject.com/) Web Framework The following requirements are listed in the requirements.txt file which can be used to install the required packages using pip.
+This project runs on [Python 3.10](https://www.python.org/) using the [Django 4.1.7](https://www.djangoproject.com/) Web Framework. The following requirements are listed in the requirements.txt file which can be used to install the required packages using pip.
 
 - asgiref==3.6.0
 - defusedxml==0.7.1
